@@ -1,0 +1,467 @@
+/* =========================
+   THEME VARIABLES
+   - Clair par défaut
+   - Sombre si: <html data-theme="dark">
+   ========================= */
+
+/* Thème clair (par défaut) */
+:root {
+  /* Couleurs de base */
+  --bg: #f7f9fc;
+  --text: #0f172a;
+  --muted: #475569;
+
+  /* Surfaces / bordures */
+  --card: #ffffff;
+  --input-bg: #ffffff;
+  --border: #e2e8f0;
+  --border-strong: #d0d7e2;
+  --thead: #f1f5f9;
+  --elev: rgba(0, 0, 0, 0.08);
+
+  /* Accent & états */
+  --accent: #2563eb;
+  --accent-contrast: #e7efff;
+  --ok: #16a34a;
+  --warn: #b7791f;
+  --danger: #dc2626;
+  --link: #0b6efd;
+
+  /* Boutons */
+  --btn: #eaeef5;
+  --btn-ghost: #ffffff;
+  --btn-ghost-border: #e2e8f0;
+  --btn-primary: #2563eb;
+  --btn-primary-contrast: #ffffff;
+
+  /* Ombres */
+  --shadow-1: 0 1px 2px 0 rgba(0, 0, 0, 0.08);
+  --shadow-2: 0 8px 24px -6px rgba(0, 0, 0, 0.15);
+}
+
+/* Thème sombre */
+html[data-theme="dark"] {
+  --bg: #0b1010;
+  --text: #eaeef2;
+  --muted: #9aa2af;
+
+  --card: #111318;
+  --input-bg: #0c0f15;
+  --border: #2a2a2a;
+  --border-strong: #20232b;
+  --thead: #191c24;
+  --elev: rgba(0, 0, 0, 0.25);
+
+  --accent: #6aa6ff;
+  --accent-contrast: #0b1a33;
+  --ok: #4bd865;
+  --warn: #f59e0b;
+  --danger: #ef4444;
+  --link: #7ab7ff;
+
+  --btn: #1d2433;
+  --btn-ghost: #10131a;
+  --btn-ghost-border: #242836;
+  --btn-primary: #3b82f6;
+  --btn-primary-contrast: #ffffff;
+
+  --shadow-1: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  --shadow-2: 0 6px 18px -4px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================
+   RESET / BASE
+   ========================= */
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu,
+    "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+.muted {
+  color: var(--muted);
+}
+
+/* =========================
+   HEADER / NAV
+   ========================= */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: color-mix(in oklab, var(--card) 85%, transparent);
+  -webkit-backdrop-filter: saturate(160%) blur(8px);
+  backdrop-filter: saturate(160%) blur(8px);
+  border-bottom: 1px solid var(--border-strong);
+}
+.nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.brand {
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  color: var(--text);
+}
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+.tab {
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: var(--thead);
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+.tab.active {
+  background: var(--accent-contrast);
+  color: var(--text);
+  border-color: color-mix(in sRGB, var(--accent) 40%, var(--border));
+}
+
+/* =========================
+   CONTAINERS
+   ========================= */
+.container {
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 0 12px;
+}
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.grid {
+  display: grid;
+  gap: 10px;
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 8px;
+}
+
+/* =========================
+   SURFACES / LISTES / TABLES
+   ========================= */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: var(--shadow-1);
+}
+.section-title {
+  margin: 0 0 6px 0;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border);
+  padding: 10px 0;
+}
+.item:first-child {
+  border-top: 0;
+}
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.table thead th {
+  background: var(--thead);
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  text-align: left;
+  padding: 10px;
+}
+.table tbody td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px;
+  color: var(--text);
+  vertical-align: top;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* =========================
+   FORMULAIRES / CONTROLES
+   ========================= */
+input,
+select,
+textarea,
+button {
+  font: inherit;
+}
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--input-bg);
+  color: var(--text);
+  outline: none;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease,
+    background 0.2s ease;
+}
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted);
+}
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--btn-primary);
+  box-shadow: 0 0 0 3px color-mix(in sRGB, var(--btn-primary) 30%, transparent);
+}
+
+button {
+  cursor: pointer;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: var(--btn);
+  color: var(--text);
+  transition: filter 0.15s ease, transform 0.05s ease;
+}
+button:hover {
+  filter: brightness(1.05);
+}
+button:active {
+  transform: translateY(1px);
+}
+
+.btn {
+  background: var(--btn);
+}
+.btn-ghost {
+  background: var(--btn-ghost);
+  border-color: var(--btn-ghost-border);
+}
+.btn-primary {
+  background: var(--btn-primary);
+  color: var(--btn-primary-contrast);
+  border-color: color-mix(in sRGB, var(--btn-primary) 40%, var(--border));
+}
+.btn-danger {
+  background: var(--danger);
+  color: #fff;
+  border-color: color-mix(in sRGB, var(--danger) 40%, var(--border));
+}
+
+/* =========================
+   BADGES / ALERTS / STATUTS
+   ========================= */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: var(--btn);
+  border: 1px solid var(--btn-ghost-border);
+  color: color-mix(in sRGB, var(--text) 85%, #fff 15%);
+}
+
+.badge.ok {
+  background: color-mix(in sRGB, var(--ok) 15%, var(--btn));
+  border-color: color-mix(in sRGB, var(--ok) 35%, var(--btn-ghost-border));
+  color: var(--text);
+}
+.badge.warn {
+  background: color-mix(in sRGB, var(--warn) 15%, var(--btn));
+  border-color: color-mix(in sRGB, var(--warn) 35%, var(--btn-ghost-border));
+  color: var(--text);
+}
+.badge.ko {
+  background: color-mix(in sRGB, var(--danger) 15%, var(--btn));
+  border-color: color-mix(in sRGB, var(--danger) 35%, var(--btn-ghost-border));
+  color: var(--text);
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+}
+.status.pending {
+  background: var(--thead);
+  color: var(--muted);
+}
+.status.accepted {
+  background: color-mix(in sRGB, var(--ok) 18%, var(--card));
+  color: var(--text);
+  border-color: color-mix(in sRGB, var(--ok) 40%, var(--border));
+}
+.status.refused {
+  background: color-mix(in sRGB, var(--danger) 18%, var(--card));
+  color: var(--text);
+  border-color: color-mix(in sRGB, var(--danger) 40%, var(--border));
+}
+
+.alert {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: color-mix(in sRGB, var(--card) 85%, var(--elev));
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-1);
+}
+.alert.success {
+  background: color-mix(in sRGB, var(--ok) 10%, var(--card));
+  border-color: color-mix(in sRGB, var(--ok) 45%, var(--border));
+  color: var(--text);
+}
+
+/* =========================
+   MODAL
+   ========================= */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 1000;
+}
+.modal {
+  width: 100%;
+  max-width: 460px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: var(--shadow-2);
+}
+.modal .buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+.footer {
+  border-top: 1px solid var(--border-strong);
+  margin-top: 32px;
+  padding: 16px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* =========================
+   UTILITIES
+   ========================= */
+.m-0 {
+  margin: 0;
+}
+.mt-0 {
+  margin-top: 0;
+}
+.mb-0 {
+  margin-bottom: 0;
+}
+.mt-12 {
+  margin-top: 12px;
+}
+.mt-24 {
+  margin-top: 24px;
+}
+.gap-8 {
+  gap: 8px;
+}
+.gap-12 {
+  gap: 12px;
+}
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================
+   FIXES (dropdowns, overlay)
+   ========================= */
+.card,
+.panel,
+.form,
+.section {
+  overflow: visible !important;
+}
+select,
+input,
+textarea,
+button {
+  position: relative;
+  z-index: 10;
+}
+.header-overlay,
+.header::before,
+.header::after {
+  pointer-events: none;
+}
+.header {
+  z-index: 100;
+}
+.form-card {
+  overflow: visible !important;
+}
