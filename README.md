@@ -97,4 +97,5 @@ npm run dev
 📅 Auteur
 
 Foulail Oumar
-Mini projet réalisé dans le cadre d’une demande de stage (du 22 Septembre 2025 au 17 Novembre 2025) à l’école O'Clock.
+
+Mini projet réalisé dans le cadre d’une demande de stage (du 22 Septembre 2025 au 17 Novembre 2025)
