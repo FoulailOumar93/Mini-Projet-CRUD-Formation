@@ -1,51 +1,49 @@
 # 🎓 Mini Projet CRUD – Centre de formation
 
-Application fullstack (⚛️ React + 🟢 Node.js + 🗄️ Supabase) permettant :
-
-- Aux candidats de :
-  - Postuler à une formation avec CV et lettre de motivation
-  - Suivre le statut de leur candidature
-
-- Aux administrateurs de :
-  - Ajouter / modifier / supprimer des formations
-  - Voir les candidatures reçues
-  - Accepter ou refuser les candidatures
+Application fullstack (⚛️ React + 🟢 Node.js + 🟣 Supabase) permettant :
 
 ---
 
-## ⚙️ Stack utilisée
+## 👤 Côté Candidat
 
-- Frontend : [:contentReference[oaicite:0]{index=0}] + [:contentReference[oaicite:1]{index=1}]
-- Backend : [:contentReference[oaicite:2]{index=2}] + [:contentReference[oaicite:3]{index=3}]
-- Base de données + stockage fichiers : [:contentReference[oaicite:4]{index=4}]
-
----
-
-## 🚀 Lancement
-
-```bash
-# Terminal 1 (Backend)
-cd server
-npm install
-npm run dev
-
-# Terminal 2 (Frontend)
-cd client
+- Postuler à une **formation** avec :
+  - CV (obligatoire)
+  - Lettre de motivation (obligatoire)
+  - Message facultatif
+  - Choix de la session de formation
+- Suivre l’état de sa candidature :
+  - En attente
+  - Acceptée
+  - Refusée
+- Recevoir un message personnalisé si sa candidature est acceptée ou refusée
 
 ---
 
-## ⚡ Étapes suivantes
+## ⚙️ Côté Admin
 
-Quand ces deux fichiers sont créés, tape ces commandes dans **PowerShell** :
+- Ajouter, modifier et supprimer des **formations**
+- Voir toutes les **candidatures reçues**
+- Télécharger le **CV** et la **lettre de motivation** envoyés par le candidat
+- Accepter ou refuser les candidatures
+- Quand une candidature est acceptée :
+  - Le candidat est automatiquement ajouté à la section "Élèves"
+- Chercher les élèves par :
+  - Nom
+  - Email
+  - Téléphone
+  - Âge
+- Exporter la liste des élèves en **PDF**
 
-```powershell
-cd "C:\Users\Oumar Foulail\Mini-Projet"
-git init
-git branch -M main
-git add .
-git commit -m "Initial commit: mini projet CRUD formation"
-git remote add origin https://github.com/FoulailOumar93/Mini-Projet-CRUD-Formation.git
-git push -u origin main
+---
 
-npm install
-npm run dev
+## 🛠️ Technologies utilisées
+
+- ⚛️ **React** — Interface utilisateur
+- 🟢 **Node.js / Express** — API backend
+- 🟣 **Supabase** — Base de données et stockage de fichiers (CV + lettres)
+- 💅 **CSS** — Interface responsive en mode sombre / clair
+
+---
+
+## 📁 Structure du projet
+
